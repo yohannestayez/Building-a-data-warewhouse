@@ -41,7 +41,7 @@ The data warehouse helps provide insights into trends, patterns, and correlation
 Install the dependencies using:
 
 ```bash
-pip install pandas sqlalchemy Pillow
+pip install -r requirements.txt
 ```
 
 ### Running the Notebook

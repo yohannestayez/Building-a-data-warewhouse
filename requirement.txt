@@ -4,3 +4,4 @@ asyncio
 pandas
 sqlalchemy 
 Pillow
+dbt

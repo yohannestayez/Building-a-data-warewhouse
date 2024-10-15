@@ -50,6 +50,38 @@ pip install -r requirements.txt
 3. Execute the notebook to load, clean, transform, and store the data.
 4. The image resizing function will process all images in the specified directory.
 
+
+### DBT Integration
+As part of the data warehousing initiative, DBT (Data Build Tool) was utilized to facilitate data transformations and create a robust data pipeline. The integration with DBT provides a structured and modular approach to managing data transformations, ensuring high-quality and maintainable SQL code.
+
+**Key Operations with DBT**:
+- **Data Modeling**:
+
+Created models that aggregate data from various sources, including cleaned data on Ethiopian medical businesses.
+Defined relationships between tables to maintain data integrity and facilitate easier querying.
+Transformations:
+
+Developed SQL models for transforming raw data into a structured format suitable for analysis.
+Implemented data cleaning processes such as removing duplicates, handling missing values, and standardizing formats directly within DBT.
+Materializations:
+
+Configured models to be materialized as tables in the PostgreSQL database, making it easier to query and analyze the data efficiently.
+Ensured that transformed data is updated automatically with each run, maintaining the latest insights.
+Version Control and Documentation:
+
+Leveraged DBT's built-in version control capabilities to track changes in the data models over time.
+Documented the models within the DBT framework to provide clear insights into the data transformation process, making it easier for team members to understand the workflow.
+Execution:
+
+The DBT models are executed in conjunction with the data cleaning and transformation processes, ensuring that the warehouse is populated with the latest, cleaned data ready for analysis.
+
+To run the DBT models and update the data warehouse, you can execute the following command:
+
+```bash
+dbt run
+```
+The integration of DBT allows for future enhancements, such as the addition of new data sources and more complex transformations, all while maintaining the integrity and quality of the data warehouse.
+
 ### Logging
 Logs will be saved in the `data_cleaning_task2.log` file. This file will contain a record of processed files, errors encountered, and other relevant information.
 

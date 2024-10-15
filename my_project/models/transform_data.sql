@@ -1,23 +1,13 @@
 {{ config(materialized='table') }}
 
 WITH raw_data AS (
-    -- Combine all messages into one dataset
-    SELECT 
-        'CheMed123' AS source,
-        content AS message,
-        sender_id,
-        timestamp,
-        status
-    FROM "warehouse"."public"."CheMed123_messages"
-    
-    UNION ALL
-
     SELECT 
         'DoctorsET' AS source,
         content AS message,
         sender_id,
-        timestamp,
-        status
+        date AS timestamp,  -- Using 'date' as the timestamp
+        NULL AS status  -- Assuming DoctorsET does not have a status column
+    
     FROM "warehouse"."public"."DoctorsET_messages"
     
     UNION ALL
@@ -26,8 +16,9 @@ WITH raw_data AS (
         'EAHCI' AS source,
         content AS message,
         sender_id,
-        timestamp,
-        status
+        date AS timestamp,  -- Using 'date' as the timestamp
+        NULL AS status  -- Assuming EAHCI does not have a status column
+
     FROM "warehouse"."public"."EAHCI_messages"
     
     UNION ALL
@@ -36,8 +27,9 @@ WITH raw_data AS (
         'lobelia4cosmetics' AS source,
         content AS message,
         sender_id,
-        timestamp,
-        status
+        date AS timestamp,  -- Using 'date' as the timestamp
+        NULL AS status  -- Assuming lobelia4cosmetics does not have a status column
+
     FROM "warehouse"."public"."lobelia4cosmetics_messages"
     
     UNION ALL
@@ -46,8 +38,9 @@ WITH raw_data AS (
         'yetenaweg' AS source,
         content AS message,
         sender_id,
-        timestamp,
-        status
+        date AS timestamp,  -- Using 'date' as the timestamp
+        NULL AS status  -- Assuming yetenaweg does not have a status column
+
     FROM "warehouse"."public"."yetenaweg_messages"
 ),
 
@@ -56,11 +49,11 @@ cleaned_data AS (
     SELECT
         source,
         message,
-        sender_id::INT AS sender_id,  -- Ensure sender_id is an integer
+        sender_id::BIGINT AS sender_id,  -- Change INT to BIGINT
         timestamp,
         status
     FROM raw_data
-    WHERE status IS NOT NULL  -- Exclude rows with null status
+    WHERE status IS NULL  -- Exclude rows with status, as all are assumed NULL
 ),
 
 -- Ensure distinct records
@@ -70,11 +63,7 @@ final_data AS (
         message,
         sender_id,
         timestamp,
-        CASE 
-            WHEN status = 'sent' THEN 'Sent'
-            WHEN status = 'received' THEN 'Received'
-            ELSE 'Unknown'
-        END AS status_description
+        'Unknown' AS status_description  -- Default status description since all are unknown
     FROM cleaned_data
 )
 

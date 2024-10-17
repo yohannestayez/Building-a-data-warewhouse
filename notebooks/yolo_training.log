@@ -28,3 +28,34 @@ WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently install
 2024-10-17 08:31:35,977 - INFO - Best weights saved to labeled_yolov5_model.pt
 2024-10-17 08:31:35,977 - INFO - YOLOv5 training script completed.
 2024-10-17 08:52:43,235 - INFO - Detection data successfully stored in the database.
+2024-10-17 23:32:37,970 - INFO - YOLOv5 training script started.
+2024-10-17 23:32:37,971 - INFO - Validating existence of training data directories...
+2024-10-17 23:32:37,971 - INFO - Training data directories verified.
+2024-10-17 23:32:37,972 - INFO - Training parameters - Epochs: 30, Batch Size: 4, Image Size: 640
+2024-10-17 23:32:37,972 - INFO - Checking existence of data.yaml file at C:/Users/Administrator/Documents/kifiya/Week_7/yolov5pytorch/data.yaml...
+2024-10-17 23:32:37,974 - INFO - data.yaml file found at C:/Users/Administrator/Documents/kifiya/Week_7/yolov5pytorch/data.yaml
+2024-10-17 23:32:37,974 - INFO - Starting YOLOv5 training...
+2024-10-17 23:46:09,972 - INFO - YOLOv5 training command executed: ['python', 'C:/Users/Administrator/Documents/kifiya/Week_7/yolov5/train.py', '--img', '640', '--batch', '4', '--epochs', '30', '--data', 'C:/Users/Administrator/Documents/kifiya/Week_7/yolov5pytorch/data.yaml', '--weights', 'yolov5s.pt', '--cache', '--device', '0', '--hyp', 'C:/Users/Administrator/Documents/kifiya/Week_7/scripts/hyp.yaml']
+2024-10-17 23:46:09,973 - INFO - YOLOv5 training completed successfully.
+2024-10-17 23:46:09,974 - INFO - Training output: WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+WARNING ⚠️ Python>=3.10 is required, but Python==3.9.20 is currently installed 
+
+2024-10-17 23:46:09,981 - INFO - Scanning for experiment folders in C:/Users/Administrator/Documents/kifiya/Week_7/yolov5/runs/train...
+2024-10-17 23:46:09,984 - INFO - Latest experiment folder identified: exp4
+2024-10-17 23:46:09,985 - INFO - Checking for best.pt or last.pt model weights...
+2024-10-17 23:46:09,986 - INFO - Found best.pt at C:/Users/Administrator/Documents/kifiya/Week_7/yolov5/runs/train\exp4\weights\best.pt. Renaming to labeled_yolov5_model.pt
+2024-10-17 23:46:09,986 - INFO - Overwriting existing weights file at labeled_yolov5_model.pt
+2024-10-17 23:46:09,987 - INFO - Best weights saved to labeled_yolov5_model.pt
+2024-10-17 23:46:09,987 - INFO - YOLOv5 training script completed.
+2024-10-17 23:46:52,551 - INFO - Detection data successfully stored in the database.

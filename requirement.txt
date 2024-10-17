@@ -8,3 +8,4 @@ dbt
 roboflow
 torch
 torchvision
+opencv-python

@@ -1,7 +1,11 @@
 telethon
- python-dotenv
+python-dotenv
 asyncio
 pandas
 sqlalchemy 
 Pillow
 dbt
+roboflow
+torch
+torchvision
+opencv-python

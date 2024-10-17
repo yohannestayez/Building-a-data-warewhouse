@@ -22,6 +22,15 @@ The data warehouse helps provide insights into trends, patterns, and correlation
   4. **Image Resizing for YOLO**: Resizes images to 416x416 to ensure they are ready for object detection using YOLO.
   5. **Error Handling and Logging**: Tracks errors and logs progress in a log file (`data_cleaning_task2.log`).
 
+### image_processing.ipynb: 
+1. **Data Validation**: The paths for the training images, labels, and data.yaml configuration file are validated to ensure that the directories and files exist before starting the training.
+2. **Training Setup**: Training parameters such as epochs, batch_size, and img_size are configured. The notebook uses a subprocess to run the YOLOv5 training script with these parameters.
+3. **Running YOLOv5 Training**: The training process is executed using the YOLOv5 train.py script, where the dataset paths and configuration are passed through the data.yaml file.
+4. **Post-training Weight Management**: After training, the notebook locates the best and last weights, logs them, and saves the final model weights as labeled_yolov5_model.pt.
+5. **Database saving**: finally detectction results are saved to our warehouse database
+
+
+
 ## Project Structure
 - **Data Source**: JSON files containing Ethiopian medical business information, stored in `C:\Users\Administrator\Documents\kifiya\Week_7\Data`.
 - **Image Data**: Image files associated with the businesses are resized and stored in `C:\Users\Administrator\Documents\kifiya\Week_7\Data\images`.
@@ -37,6 +46,9 @@ The data warehouse helps provide insights into trends, patterns, and correlation
   - `logging`
   - `sqlalchemy`
   - `Pillow`
+  - `roboflow`
+  - `torch`
+  - `torchvision`
   
 Install the dependencies using:
 
@@ -83,20 +95,7 @@ dbt run
 The integration of DBT allows for future enhancements, such as the addition of new data sources and more complex transformations, all while maintaining the integrity and quality of the data warehouse.
 
 ### Logging
-Logs will be saved in the `data_cleaning_task2.log` file. This file will contain a record of processed files, errors encountered, and other relevant information.
-
-### Example Usage
-To process the JSON files and store them in the database, simply run:
-
-```python
-process_json_files(json_dir)
-```
-
-To resize images for YOLO object detection:
-
-```python
-transform_images(image_folder)
-```
+Logs will be saved in the `data_cleaning_task2.log` and `yolo_training.log` file. This file will contain a record of processed files, errors encountered, and other relevant information.
 
 
 

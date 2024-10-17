@@ -97,8 +97,52 @@ The integration of DBT allows for future enhancements, such as the addition of n
 ### Logging
 Logs will be saved in the `data_cleaning_task2.log` and `yolo_training.log` file. This file will contain a record of processed files, errors encountered, and other relevant information.
 
+### FastAPI CRUD Application
+A FastAPI-based app exposing data collected from YOLOv5 object detection, with PostgreSQL as the backend.
 
+**Features**
+- CRUD API for detection data.
+- PostgreSQL database using SQLAlchemy.
+- Pydantic for data validation.
 
+**Steps**
+1. Clone the Repository:
+  ```
+  git clone https://github.com/yohannestayez/Building-a-data-warewhouse.git
+  ```
+2. Install Dependencies:
+  ```
+  pip install -r requirements.txt
+  ```
+3. Configure Database: 
+  Update database.py with your PostgreSQL credentials:
+  ```
+  DATABASE_URL = "postgresql://<username>:<password>@<host>:<port>/<database_name>"
+  ```
+4. Run the API:
+  ```
+  uvicorn App.main:app --reload
+  ```
+**API Endpoints**
+
+- **GET /items/**: Retrieve all items.
+- **GET /items/{id}**: Retrieve an item by ID.
+- **POST /items/**: Create a new item.
+- **PUT /items/{id}**: Update an item.
+- **DELETE /items/{id}**: Delete an item.
+
+**Docker Setup**
+1. Create Dockerfile:
+```bash
+docker build -t fastapi-app .
+```
+2. Run Docker Container:
+```bash
+docker run -d -p 8000:8000 fastapi-app
+```
+
+## Contact
+For any inquiries, feel free to reach out!
 
 ## Author
 This project was developed by the data engineering team at Kara Solutions as part of a data warehouse initiative for Ethiopian medical businesses.
